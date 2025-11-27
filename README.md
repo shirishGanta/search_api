@@ -56,3 +56,49 @@ While building this search API, I considered a few different design approaches:
 
 I chose the in‑memory approach for simplicity and speed of setup, since the dataset is small and the goal is to demonstrate search and pagination logic.
 
+
+
+
+
+
+
+\## Bonus 2: Data Insights
+
+
+
+To reduce latency to around \*\*30 ms\*\*, the following optimizations can be applied:
+
+
+
+\- \*\*Keep data in memory:\*\*  
+
+&nbsp; Avoid reading from disk for every request by caching data in memory.
+
+
+
+\- \*\*Use asynchronous I/O:\*\*  
+
+&nbsp; Convert endpoints to `async def` and use non‑blocking I/O operations.
+
+
+
+\- \*\*Add caching:\*\*  
+
+&nbsp; Use Redis or an in‑memory LRU cache to store frequent query results.
+
+
+
+\- \*\*Optimize deployment region:\*\*  
+
+&nbsp; Deploy the API closer to the target users to minimize network latency.
+
+
+
+\- \*\*Pre‑index data:\*\*  
+
+&nbsp; Use SQLite FTS5 or Elasticsearch for indexed text search to improve query speed.
+
+
+
+
+
